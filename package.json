@@ -1,0 +1,35 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "This is a web app that manages to-do list.",
+  "main": "bin/www",
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "bcrypt": "^3.0.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.6.4",
+    "mongoose-dateonly": "^1.0.6",
+    "nodemon": "^1.19.1",
+    "react-native-cli": "^2.0.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexeyvoronov97/Todolist.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/alexeyvoronov97/Todolist/issues"
+  },
+  "homepage": "https://github.com/alexeyvoronov97/Todolist#readme"
+}

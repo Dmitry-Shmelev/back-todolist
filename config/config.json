@@ -1,0 +1,4 @@
+{
+    "database": "TodoListDB", 
+    "secret_key": "secret"
+}

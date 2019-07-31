@@ -1,0 +1,60 @@
+const mongoose = require('mongoose');
+
+const app = require('../app');
+const config = require('../config/config.json');
+
+const port = process.env.PORT || 3000;
+
+var url = 'mongodb+srv://user:user@cluster0-bwjdi.mongodb.net/test?retryWrites=true&w=majority';
+
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useCreateIndex', true);
+
+mongoose.connect(url, { useNewUrlParser: true }, (err) => {
+	if(err) {
+		console.error('Error connecting to db: ', err);
+	} else {
+		console.info('Mongodb connection successful');
+	}
+
+	app.listen(port, () => {
+		console.log('Server running on port ' + port);
+	});
+});
+
+
+
+app.on('error', onError);
+app.on('listening', onListening);
+
+
+function onError(err) {
+	if (err.syscall !== 'listen') {
+		throw err;
+	}
+
+	var bind = typeof port === 'string'
+		? 'Pipe' + port
+		: 'Port' + port;
+
+	switch (err.code) {
+		case 'EACCES':
+			console.error(bind + ' requires elevated privileges');
+			process.exit(1);
+			break;
+		case 'EADDRINUSE':
+			console.error(bind + ' is already in use');
+			process.exit(1);
+			break;
+		default:
+			throw err;
+	};
+}
+
+function onListening() {
+	var addr = app.address();
+	var bind = typeof addr === 'string'
+    	? 'pipe ' + addr
+    	: 'port ' + addr.port;
+  	debug('Listening on ' + bind);
+}
